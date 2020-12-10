@@ -27,28 +27,24 @@ The Mondial database is available in several formats:
 The [Database training "Praktikum: Datenbankprogrammierung in SQL/Oracle"](http://dbis.informatik.uni-goettingen.de/Teaching/DBP/) at the IFI uses the relational version of the MONDIAL database:
 
 *   **Generating the Database under Oracle**
-    *   [<font color="red">Database schema</font>](mondial-schema.sql) "mondial-schema.sql"  
-
-    *   [<font color="red">Input statements</font>](mondial-inputs.sql) "mondial-inputs.sql"
-    *   [<font color="red">Drop Table statements</font>](mondial-drop-tables.sql) "mondial-drop-tables.sql"
+    *   [Database schema](mondial-schema.sql) "mondial-schema.sql"  
+    *   [Input statements](mondial-inputs.sql) "mondial-inputs.sql"
+    *   [Drop Table statements](mondial-drop-tables.sql) "mondial-drop-tables.sql"
 
 *   **Generating the Database under PostgreSQL**
     *   [Database schema for postgres](mondial-schema.psql) "mondial-schema.psql"  
-
     *   [Input statements for postgres](mondial-inputs.psql) "mondial-inputs.psql"
     *   [Drop Table statements](mondial-drop-tables.psql) "mondial-drop-tables.psql"
 
 *   **Generating the Database under MySQL/MariaDB**
 
     *   [Database schema for mysql](mondial-schema-mysql.sql) "mondial-schema-mysql.sql" (tablenames lowercase since MariaDB is case-sensitive; by Marcel Schneider, 2018)  
-
     *   [Input statements for mysql (all tablenames lowercase)](mondial-inputs-mysql.sql) "mondial-inputs-mysql.sql"
     *   short [description](OtherDBMSs/ora2mysql.txt) what has been changed for MySQL.
 
 *   **Generating the Database under the [H2 Database System (SQL, Java)](http://www.h2database.com/html/main.html)**
 
     *   [Database schema for H2](mondial-schema-h2.sql) "mondial-schema-h2.sql"  
-
     *   [Input statements for H2](mondial-inputs-h2.sql) "mondial-inputs-h2.sql"
     *   short [description](ora2h2.txt) what has been changed for H2.
 
