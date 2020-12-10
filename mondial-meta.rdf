@@ -1,0 +1,1005 @@
+<rdf:RDF
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns="http://www.semwebtech.org/mondial/10/meta#"
+    xmlns:owl="http://www.w3.org/2002/07/owl#"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema#">
+  <owl:Class rdf:about="http://www.semwebtech.org/mondial/10/meta#NonGeographicalPoliticalThing">
+    <owl:disjointUnionOf rdf:parseType="Collection">
+      <rdf:Description rdf:about="http://www.semwebtech.org/mondial/10/meta#Country">
+        <rdfs:subClassOf>
+          <owl:Class rdf:about="http://www.semwebtech.org/mondial/10/meta#LargeArea"/>
+        </rdfs:subClassOf>
+      </rdf:Description>
+      <rdf:Description rdf:about="http://www.semwebtech.org/mondial/10/meta#Province">
+        <rdfs:subClassOf>
+          <owl:Class rdf:about="http://www.semwebtech.org/mondial/10/meta#LargeArea"/>
+        </rdfs:subClassOf>
+      </rdf:Description>
+      <owl:Class rdf:about="http://www.semwebtech.org/mondial/10/meta#Organization"/>
+      <rdf:Description rdf:about="http://www.semwebtech.org/mondial/10/meta#Border">
+        <rdfs:subClassOf>
+          <owl:Restriction>
+            <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+            >2</owl:cardinality>
+            <owl:onProperty>
+              <owl:ObjectProperty rdf:about="http://www.semwebtech.org/mondial/10/meta#isBorderOf"/>
+            </owl:onProperty>
+          </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+          <owl:Class rdf:about="http://www.semwebtech.org/mondial/10/meta#Line"/>
+        </rdfs:subClassOf>
+      </rdf:Description>
+    </owl:disjointUnionOf>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.semwebtech.org/mondial/10/meta#TimeSeriesElement">
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+        >1</owl:maxCardinality>
+        <owl:onProperty>
+          <owl:DatatypeProperty rdf:about="http://www.semwebtech.org/mondial/10/meta#year"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.semwebtech.org/mondial/10/meta#GeographicalThing">
+    <owl:disjointUnionOf rdf:parseType="Collection">
+      <rdf:Description rdf:about="http://www.semwebtech.org/mondial/10/meta#City">
+        <rdfs:subClassOf>
+          <owl:Restriction>
+            <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+            >0</owl:cardinality>
+            <owl:onProperty>
+              <owl:FunctionalProperty rdf:about="http://www.semwebtech.org/mondial/10/meta#area"/>
+            </owl:onProperty>
+          </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+          <owl:Restriction>
+            <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+            >1</owl:maxQualifiedCardinality>
+            <owl:onClass rdf:resource="http://www.semwebtech.org/mondial/10/meta#Country"/>
+            <owl:onProperty>
+              <owl:ObjectProperty rdf:about="http://www.semwebtech.org/mondial/10/meta#isCapitalOf"/>
+            </owl:onProperty>
+          </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+          <owl:Restriction>
+            <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+            >1</owl:qualifiedCardinality>
+            <owl:onClass rdf:resource="http://www.semwebtech.org/mondial/10/meta#Country"/>
+            <owl:onProperty>
+              <owl:ObjectProperty rdf:about="http://www.semwebtech.org/mondial/10/meta#locatedIn"/>
+            </owl:onProperty>
+          </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+          <owl:Restriction>
+            <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+            >1</owl:maxQualifiedCardinality>
+            <owl:onClass rdf:resource="http://www.semwebtech.org/mondial/10/meta#Province"/>
+            <owl:onProperty>
+              <owl:ObjectProperty rdf:about="http://www.semwebtech.org/mondial/10/meta#locatedIn"/>
+            </owl:onProperty>
+          </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+          <owl:Class rdf:about="http://www.semwebtech.org/mondial/10/meta#AdministrativeSubdivision"/>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+          <owl:Restriction>
+            <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+            >1</owl:maxQualifiedCardinality>
+            <owl:onClass rdf:resource="http://www.semwebtech.org/mondial/10/meta#Province"/>
+            <owl:onProperty>
+              <owl:ObjectProperty rdf:about="http://www.semwebtech.org/mondial/10/meta#cityIn"/>
+            </owl:onProperty>
+          </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+          <owl:Restriction>
+            <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+            >1</owl:qualifiedCardinality>
+            <owl:onClass rdf:resource="http://www.semwebtech.org/mondial/10/meta#Country"/>
+            <owl:onProperty rdf:resource="http://www.semwebtech.org/mondial/10/meta#cityIn"/>
+          </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf rdf:resource="http://www.semwebtech.org/mondial/10/meta#SmallArea"/>
+        <rdfs:subClassOf rdf:resource="http://www.semwebtech.org/mondial/10/meta#GeographicalThing"/>
+      </rdf:Description>
+      <owl:Class rdf:about="http://www.semwebtech.org/mondial/10/meta#GeographicalNonPoliticalThing"/>
+    </owl:disjointUnionOf>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.semwebtech.org/mondial/10/meta#Place">
+    <owl:disjointWith>
+      <owl:Class rdf:about="http://www.semwebtech.org/mondial/10/meta#Area"/>
+    </owl:disjointWith>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.semwebtech.org/mondial/10/meta#LargeArea">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="http://www.semwebtech.org/mondial/10/meta#Area"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.semwebtech.org/mondial/10/meta#Location">
+    <owl:disjointUnionOf rdf:parseType="Collection">
+      <owl:Class rdf:about="http://www.semwebtech.org/mondial/10/meta#Place"/>
+      <rdf:Description rdf:about="http://www.semwebtech.org/mondial/10/meta#SmallArea"/>
+    </owl:disjointUnionOf>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.semwebtech.org/mondial/10/meta#AnthropoGeographicalRelationship">
+    <owl:disjointUnionOf rdf:parseType="Collection">
+      <rdf:Description rdf:about="http://www.semwebtech.org/mondial/10/meta#SpokenBy">
+        <rdfs:subClassOf rdf:resource="http://www.semwebtech.org/mondial/10/meta#AnthropoGeographicalRelationship"/>
+      </rdf:Description>
+      <rdf:Description rdf:about="http://www.semwebtech.org/mondial/10/meta#BelievedBy">
+        <rdfs:subClassOf rdf:resource="http://www.semwebtech.org/mondial/10/meta#AnthropoGeographicalRelationship"/>
+      </rdf:Description>
+      <rdf:Description rdf:about="http://www.semwebtech.org/mondial/10/meta#EthnicProportion">
+        <rdfs:subClassOf rdf:resource="http://www.semwebtech.org/mondial/10/meta#AnthropoGeographicalRelationship"/>
+      </rdf:Description>
+    </owl:disjointUnionOf>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.semwebtech.org/mondial/10/meta#Line">
+    <owl:disjointWith rdf:resource="http://www.semwebtech.org/mondial/10/meta#Place"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="http://www.semwebtech.org/mondial/10/meta#Area"/>
+    </owl:disjointWith>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.semwebtech.org/mondial/10/meta#EncompassedArea">
+    <owl:equivalentClass rdf:parseType="Resource">
+      <owl:intersectionOf rdf:parseType="Collection">
+        <owl:Class rdf:about="http://www.semwebtech.org/mondial/10/meta#LargeArea"/>
+        <rdf:Description>
+          <owl:complementOf>
+            <rdf:Description rdf:about="http://www.semwebtech.org/mondial/10/meta#Continent">
+              <owl:disjointWith rdf:resource="http://www.semwebtech.org/mondial/10/meta#Province"/>
+              <rdfs:subClassOf>
+                <owl:Restriction>
+                  <owl:allValuesFrom rdf:resource="http://www.w3.org/2002/07/owl#Nothing"/>
+                  <owl:onProperty>
+                    <owl:ObjectProperty rdf:about="http://www.semwebtech.org/mondial/10/meta#locatedIn"/>
+                  </owl:onProperty>
+                </owl:Restriction>
+              </rdfs:subClassOf>
+              <rdfs:subClassOf rdf:resource="http://www.semwebtech.org/mondial/10/meta#LargeArea"/>
+            </rdf:Description>
+          </owl:complementOf>
+        </rdf:Description>
+        <rdf:Description>
+          <owl:complementOf>
+            <rdf:Description rdf:about="http://www.semwebtech.org/mondial/10/meta#Sea">
+              <owl:disjointWith rdf:resource="http://www.semwebtech.org/mondial/10/meta#Province"/>
+              <rdfs:subClassOf>
+                <owl:Restriction>
+                  <owl:allValuesFrom rdf:parseType="Resource">
+                    <owl:unionOf rdf:parseType="Collection">
+                      <rdf:Description rdf:about="http://www.semwebtech.org/mondial/10/meta#Province"/>
+                      <rdf:Description rdf:about="http://www.semwebtech.org/mondial/10/meta#Country"/>
+                      <rdf:Description rdf:about="http://www.semwebtech.org/mondial/10/meta#Continent"/>
+                    </owl:unionOf>
+                  </owl:allValuesFrom>
+                  <owl:onProperty>
+                    <owl:ObjectProperty rdf:about="http://www.semwebtech.org/mondial/10/meta#locatedIn"/>
+                  </owl:onProperty>
+                </owl:Restriction>
+              </rdfs:subClassOf>
+              <rdfs:subClassOf rdf:resource="http://www.semwebtech.org/mondial/10/meta#LargeArea"/>
+            </rdf:Description>
+          </owl:complementOf>
+        </rdf:Description>
+      </owl:intersectionOf>
+    </owl:equivalentClass>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.semwebtech.org/mondial/10/meta#AnthropoGeographicalThing">
+    <owl:disjointWith>
+      <owl:Class rdf:about="http://www.semwebtech.org/mondial/10/meta#Geometrical"/>
+    </owl:disjointWith>
+    <owl:disjointUnionOf rdf:parseType="Collection">
+      <rdf:Description rdf:about="http://www.semwebtech.org/mondial/10/meta#Language">
+        <rdfs:subClassOf rdf:resource="http://www.semwebtech.org/mondial/10/meta#AnthropoGeographicalThing"/>
+      </rdf:Description>
+      <rdf:Description rdf:about="http://www.semwebtech.org/mondial/10/meta#Religion">
+        <rdfs:subClassOf rdf:resource="http://www.semwebtech.org/mondial/10/meta#AnthropoGeographicalThing"/>
+      </rdf:Description>
+      <rdf:Description rdf:about="http://www.semwebtech.org/mondial/10/meta#EthnicGroup">
+        <rdfs:subClassOf rdf:resource="http://www.semwebtech.org/mondial/10/meta#AnthropoGeographicalThing"/>
+      </rdf:Description>
+    </owl:disjointUnionOf>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.semwebtech.org/mondial/10/meta#AdministrativeArea">
+    <owl:disjointUnionOf rdf:parseType="Collection">
+      <rdf:Description rdf:about="http://www.semwebtech.org/mondial/10/meta#Country"/>
+      <rdf:Description rdf:about="http://www.semwebtech.org/mondial/10/meta#Province"/>
+    </owl:disjointUnionOf>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.semwebtech.org/mondial/10/meta#AdministrativeSubdivision">
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+        >1</owl:qualifiedCardinality>
+        <owl:onClass rdf:resource="http://www.semwebtech.org/mondial/10/meta#Country"/>
+        <owl:onProperty rdf:resource="http://www.semwebtech.org/mondial/10/meta#belongsTo"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <owl:disjointUnionOf rdf:parseType="Collection">
+      <rdf:Description rdf:about="http://www.semwebtech.org/mondial/10/meta#Province"/>
+      <rdf:Description rdf:about="http://www.semwebtech.org/mondial/10/meta#City"/>
+    </owl:disjointUnionOf>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.semwebtech.org/mondial/10/meta#PoliticalOrGeographicalThing">
+    <owl:unionOf rdf:parseType="Collection">
+      <owl:Class rdf:about="http://www.semwebtech.org/mondial/10/meta#PoliticalThing"/>
+      <owl:Class rdf:about="http://www.semwebtech.org/mondial/10/meta#GeographicalThing"/>
+    </owl:unionOf>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.semwebtech.org/mondial/10/meta#Water">
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+        >1</owl:maxCardinality>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="http://www.semwebtech.org/mondial/10/meta#flowsInto"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <owl:disjointUnionOf rdf:parseType="Collection">
+      <rdf:Description rdf:about="http://www.semwebtech.org/mondial/10/meta#River">
+        <rdfs:subClassOf>
+          <owl:Restriction>
+            <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+            >1</owl:cardinality>
+            <owl:onProperty>
+              <owl:InverseFunctionalProperty rdf:about="http://www.semwebtech.org/mondial/10/meta#hasEstuary"/>
+            </owl:onProperty>
+          </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+          <owl:Restriction>
+            <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+            >1</owl:cardinality>
+            <owl:onProperty>
+              <owl:InverseFunctionalProperty rdf:about="http://www.semwebtech.org/mondial/10/meta#hasSource"/>
+            </owl:onProperty>
+          </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+          <owl:Restriction>
+            <owl:allValuesFrom rdf:parseType="Resource">
+              <owl:complementOf rdf:resource="http://www.semwebtech.org/mondial/10/meta#City"/>
+            </owl:allValuesFrom>
+            <owl:onProperty>
+              <owl:ObjectProperty rdf:about="http://www.semwebtech.org/mondial/10/meta#locatedIn"/>
+            </owl:onProperty>
+          </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf rdf:resource="http://www.semwebtech.org/mondial/10/meta#Line"/>
+      </rdf:Description>
+      <rdf:Description rdf:about="http://www.semwebtech.org/mondial/10/meta#Lake">
+        <rdfs:subClassOf>
+          <owl:Restriction>
+            <owl:allValuesFrom rdf:parseType="Resource">
+              <owl:complementOf rdf:resource="http://www.semwebtech.org/mondial/10/meta#Lake"/>
+            </owl:allValuesFrom>
+            <owl:onProperty>
+              <owl:ObjectProperty rdf:about="http://www.semwebtech.org/mondial/10/meta#locatedIn"/>
+            </owl:onProperty>
+          </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf rdf:resource="http://www.semwebtech.org/mondial/10/meta#SmallArea"/>
+      </rdf:Description>
+      <rdf:Description rdf:about="http://www.semwebtech.org/mondial/10/meta#Sea"/>
+    </owl:disjointUnionOf>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.semwebtech.org/mondial/10/meta#GeographicalNonPoliticalThing">
+    <owl:disjointUnionOf rdf:parseType="Collection">
+      <rdf:Description rdf:about="http://www.semwebtech.org/mondial/10/meta#Continent"/>
+      <owl:Class rdf:about="http://www.semwebtech.org/mondial/10/meta#Water"/>
+      <rdf:Description rdf:about="http://www.semwebtech.org/mondial/10/meta#Source">
+        <rdfs:subClassOf>
+          <owl:Restriction>
+            <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+            >1</owl:cardinality>
+            <owl:onProperty>
+              <owl:ObjectProperty rdf:about="http://www.semwebtech.org/mondial/10/meta#hasSource-"/>
+            </owl:onProperty>
+          </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith>
+          <owl:Class rdf:about="http://www.semwebtech.org/mondial/10/meta#Area"/>
+        </owl:disjointWith>
+        <rdfs:subClassOf rdf:resource="http://www.semwebtech.org/mondial/10/meta#Place"/>
+      </rdf:Description>
+      <rdf:Description rdf:about="http://www.semwebtech.org/mondial/10/meta#Estuary">
+        <rdfs:subClassOf>
+          <owl:Restriction>
+            <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+            >1</owl:cardinality>
+            <owl:onProperty>
+              <owl:ObjectProperty rdf:about="http://www.semwebtech.org/mondial/10/meta#hasEstuary-"/>
+            </owl:onProperty>
+          </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith>
+          <owl:Class rdf:about="http://www.semwebtech.org/mondial/10/meta#Area"/>
+        </owl:disjointWith>
+        <rdfs:subClassOf rdf:resource="http://www.semwebtech.org/mondial/10/meta#Place"/>
+      </rdf:Description>
+      <rdf:Description rdf:about="http://www.semwebtech.org/mondial/10/meta#Desert">
+        <rdfs:subClassOf>
+          <owl:Restriction>
+            <owl:allValuesFrom rdf:parseType="Resource">
+              <owl:complementOf rdf:resource="http://www.semwebtech.org/mondial/10/meta#City"/>
+            </owl:allValuesFrom>
+            <owl:onProperty>
+              <owl:ObjectProperty rdf:about="http://www.semwebtech.org/mondial/10/meta#locatedIn"/>
+            </owl:onProperty>
+          </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf rdf:resource="http://www.semwebtech.org/mondial/10/meta#SmallArea"/>
+      </rdf:Description>
+      <rdf:Description rdf:about="http://www.semwebtech.org/mondial/10/meta#Island">
+        <rdfs:subClassOf rdf:resource="http://www.semwebtech.org/mondial/10/meta#SmallArea"/>
+      </rdf:Description>
+      <rdf:Description rdf:about="http://www.semwebtech.org/mondial/10/meta#Mountain">
+        <rdfs:subClassOf rdf:resource="http://www.semwebtech.org/mondial/10/meta#Place"/>
+      </rdf:Description>
+      <rdf:Description rdf:about="http://www.semwebtech.org/mondial/10/meta#Archipelago">
+        <rdfs:subClassOf rdf:resource="http://www.semwebtech.org/mondial/10/meta#SmallArea"/>
+      </rdf:Description>
+      <rdf:Description rdf:about="http://www.semwebtech.org/mondial/10/meta#Mountains">
+        <rdfs:subClassOf>
+          <owl:Restriction>
+            <owl:allValuesFrom rdf:parseType="Resource">
+              <owl:complementOf rdf:resource="http://www.semwebtech.org/mondial/10/meta#City"/>
+            </owl:allValuesFrom>
+            <owl:onProperty>
+              <owl:ObjectProperty rdf:about="http://www.semwebtech.org/mondial/10/meta#locatedIn"/>
+            </owl:onProperty>
+          </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf rdf:resource="http://www.semwebtech.org/mondial/10/meta#SmallArea"/>
+      </rdf:Description>
+    </owl:disjointUnionOf>
+    <owl:disjointWith>
+      <owl:Class rdf:about="http://www.semwebtech.org/mondial/10/meta#PoliticalThing"/>
+    </owl:disjointWith>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.semwebtech.org/mondial/10/meta#PopulationCount">
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:allValuesFrom rdf:parseType="Resource">
+          <owl:unionOf rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semwebtech.org/mondial/10/meta#Country"/>
+            <rdf:Description rdf:about="http://www.semwebtech.org/mondial/10/meta#Province"/>
+            <rdf:Description rdf:about="http://www.semwebtech.org/mondial/10/meta#City"/>
+          </owl:unionOf>
+        </owl:allValuesFrom>
+        <owl:onProperty>
+          <owl:FunctionalProperty rdf:about="http://www.semwebtech.org/mondial/10/meta#ofObject"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <rdf:Description rdf:about="http://www.semwebtech.org/mondial/10/meta#YearlyMeasurement">
+        <rdfs:subClassOf>
+          <owl:Restriction>
+            <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+            >1</owl:cardinality>
+            <owl:onProperty>
+              <owl:DatatypeProperty rdf:about="http://www.semwebtech.org/mondial/10/meta#year"/>
+            </owl:onProperty>
+          </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+          <rdf:Description rdf:about="http://www.semwebtech.org/mondial/10/meta#Measurement">
+            <rdfs:subClassOf rdf:resource="http://www.semwebtech.org/mondial/10/meta#TimeSeriesElement"/>
+          </rdf:Description>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf rdf:resource="http://www.semwebtech.org/mondial/10/meta#TimeSeriesElement"/>
+      </rdf:Description>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.semwebtech.org/mondial/10/meta#ReifiedThing">
+    <owl:disjointWith>
+      <owl:Class rdf:about="http://www.semwebtech.org/mondial/10/meta#Geometrical"/>
+    </owl:disjointWith>
+    <owl:disjointUnionOf rdf:parseType="Collection">
+      <rdf:Description rdf:about="http://www.semwebtech.org/mondial/10/meta#Membership">
+        <rdfs:subClassOf rdf:resource="http://www.semwebtech.org/mondial/10/meta#ReifiedThing"/>
+      </rdf:Description>
+      <rdf:Description rdf:about="http://www.semwebtech.org/mondial/10/meta#Encompassed">
+        <rdfs:subClassOf rdf:resource="http://www.semwebtech.org/mondial/10/meta#ReifiedThing"/>
+      </rdf:Description>
+      <rdf:Description rdf:about="http://www.semwebtech.org/mondial/10/meta#SpokenBy"/>
+      <rdf:Description rdf:about="http://www.semwebtech.org/mondial/10/meta#BelievedBy"/>
+      <rdf:Description rdf:about="http://www.semwebtech.org/mondial/10/meta#EthnicProportion"/>
+    </owl:disjointUnionOf>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.semwebtech.org/mondial/10/meta#Organization">
+    <owl:disjointWith>
+      <owl:Class rdf:about="http://www.semwebtech.org/mondial/10/meta#Geometrical"/>
+    </owl:disjointWith>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.semwebtech.org/mondial/10/meta#Geometrical">
+    <owl:unionOf rdf:parseType="Collection">
+      <owl:Class rdf:about="http://www.semwebtech.org/mondial/10/meta#Place"/>
+      <owl:Class rdf:about="http://www.semwebtech.org/mondial/10/meta#Area"/>
+      <owl:Class rdf:about="http://www.semwebtech.org/mondial/10/meta#Line"/>
+    </owl:unionOf>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.semwebtech.org/mondial/10/meta#MondialThing">
+    <owl:disjointUnionOf rdf:parseType="Collection">
+      <owl:Class rdf:about="http://www.semwebtech.org/mondial/10/meta#PoliticalOrGeographicalThing"/>
+      <owl:Class rdf:about="http://www.semwebtech.org/mondial/10/meta#AnthropoGeographicalThing"/>
+      <owl:Class rdf:about="http://www.semwebtech.org/mondial/10/meta#ReifiedThing"/>
+    </owl:disjointUnionOf>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.semwebtech.org/mondial/10/meta#Area">
+    <owl:disjointUnionOf rdf:parseType="Collection">
+      <rdf:Description rdf:about="http://www.semwebtech.org/mondial/10/meta#SmallArea"/>
+      <owl:Class rdf:about="http://www.semwebtech.org/mondial/10/meta#LargeArea"/>
+    </owl:disjointUnionOf>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.semwebtech.org/mondial/10/meta#PoliticalThing">
+    <owl:disjointUnionOf rdf:parseType="Collection">
+      <owl:Class rdf:about="http://www.semwebtech.org/mondial/10/meta#NonGeographicalPoliticalThing"/>
+      <rdf:Description rdf:about="http://www.semwebtech.org/mondial/10/meta#City"/>
+    </owl:disjointUnionOf>
+  </owl:Class>
+  <owl:ObjectProperty rdf:about="http://www.semwebtech.org/mondial/10/meta#belongToEthnicGroup">
+    <owl:inverseOf rdf:resource="http://www.semwebtech.org/mondial/10/meta#liveInCountry"/>
+    <rdfs:range rdf:resource="http://www.semwebtech.org/mondial/10/meta#EthnicGroup"/>
+    <rdfs:domain rdf:resource="http://www.semwebtech.org/mondial/10/meta#Country"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.semwebtech.org/mondial/10/meta#hasBorder"/>
+  <owl:ObjectProperty rdf:about="http://www.semwebtech.org/mondial/10/meta#borders">
+    <rdfs:range rdf:resource="http://www.semwebtech.org/mondial/10/meta#LargeArea"/>
+    <rdfs:domain rdf:resource="http://www.semwebtech.org/mondial/10/meta#LargeArea"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.semwebtech.org/mondial/10/meta#locatedAt">
+    <rdfs:range rdf:resource="http://www.semwebtech.org/mondial/10/meta#Water"/>
+    <rdfs:domain rdf:resource="http://www.semwebtech.org/mondial/10/meta#City"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.semwebtech.org/mondial/10/meta#encompasses"/>
+  <owl:ObjectProperty rdf:about="http://www.semwebtech.org/mondial/10/meta#believeInReligion">
+    <owl:inverseOf rdf:resource="http://www.semwebtech.org/mondial/10/meta#believedInCountry"/>
+    <rdfs:range rdf:resource="http://www.semwebtech.org/mondial/10/meta#Religion"/>
+    <rdfs:domain rdf:resource="http://www.semwebtech.org/mondial/10/meta#Country"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.semwebtech.org/mondial/10/meta#hasCity">
+    <owl:inverseOf rdf:resource="http://www.semwebtech.org/mondial/10/meta#cityIn"/>
+    <rdfs:range rdf:resource="http://www.semwebtech.org/mondial/10/meta#City"/>
+    <rdfs:domain rdf:resource="http://www.semwebtech.org/mondial/10/meta#AdministrativeArea"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.semwebtech.org/mondial/10/meta#locatedInWater">
+    <rdfs:range rdf:resource="http://www.semwebtech.org/mondial/10/meta#Water"/>
+    <rdfs:domain rdf:resource="http://www.semwebtech.org/mondial/10/meta#Island"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.semwebtech.org/mondial/10/meta#hasMember"/>
+  <owl:ObjectProperty>
+    <rdfs:subPropertyOf>
+      <owl:FunctionalProperty rdf:about="http://www.semwebtech.org/mondial/10/meta#ofObject"/>
+    </rdfs:subPropertyOf>
+    <owl:inverseOf>
+      <owl:InverseFunctionalProperty rdf:about="http://www.semwebtech.org/mondial/10/meta#hadPopulation"/>
+    </owl:inverseOf>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.semwebtech.org/mondial/10/meta#isMember">
+    <owl:inverseOf rdf:resource="http://www.semwebtech.org/mondial/10/meta#hasMember"/>
+    <rdfs:range rdf:resource="http://www.semwebtech.org/mondial/10/meta#Organization"/>
+    <rdfs:domain rdf:resource="http://www.semwebtech.org/mondial/10/meta#Country"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.semwebtech.org/mondial/10/meta#speakLanguage">
+    <owl:inverseOf rdf:resource="http://www.semwebtech.org/mondial/10/meta#spokenInCountry"/>
+    <rdfs:range rdf:resource="http://www.semwebtech.org/mondial/10/meta#Language"/>
+    <rdfs:domain rdf:resource="http://www.semwebtech.org/mondial/10/meta#Country"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.semwebtech.org/mondial/10/meta#flowsInto">
+    <rdfs:range rdf:resource="http://www.semwebtech.org/mondial/10/meta#Water"/>
+    <rdfs:domain rdf:parseType="Resource">
+      <owl:unionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="http://www.semwebtech.org/mondial/10/meta#River"/>
+        <rdf:Description rdf:about="http://www.semwebtech.org/mondial/10/meta#Lake"/>
+      </owl:unionOf>
+    </rdfs:domain>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.semwebtech.org/mondial/10/meta#locatedIn">
+    <rdfs:range rdf:resource="http://www.semwebtech.org/mondial/10/meta#Area"/>
+    <rdfs:domain rdf:parseType="Resource">
+      <owl:intersectionOf rdf:parseType="Collection">
+        <owl:Class rdf:about="http://www.semwebtech.org/mondial/10/meta#GeographicalThing"/>
+        <rdf:Description>
+          <owl:complementOf rdf:resource="http://www.semwebtech.org/mondial/10/meta#Continent"/>
+        </rdf:Description>
+      </owl:intersectionOf>
+    </rdfs:domain>
+    <rdfs:domain rdf:resource="http://www.semwebtech.org/mondial/10/meta#GeographicalThing"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.semwebtech.org/mondial/10/meta#locatedOnIsland">
+    <rdfs:range rdf:resource="http://www.semwebtech.org/mondial/10/meta#Island"/>
+    <rdfs:domain rdf:parseType="Resource">
+      <owl:unionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="http://www.semwebtech.org/mondial/10/meta#City"/>
+        <rdf:Description rdf:about="http://www.semwebtech.org/mondial/10/meta#Mountain"/>
+        <rdf:Description rdf:about="http://www.semwebtech.org/mondial/10/meta#River"/>
+        <rdf:Description rdf:about="http://www.semwebtech.org/mondial/10/meta#Lake"/>
+      </owl:unionOf>
+    </rdfs:domain>
+    <rdfs:subPropertyOf rdf:resource="http://www.semwebtech.org/mondial/10/meta#locatedIn"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.semwebtech.org/mondial/10/meta#isProvinceOf">
+    <rdfs:subPropertyOf rdf:resource="http://www.semwebtech.org/mondial/10/meta#belongsTo"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.semwebtech.org/mondial/10/meta#encompassed">
+    <owl:inverseOf rdf:resource="http://www.semwebtech.org/mondial/10/meta#encompasses"/>
+    <rdfs:range rdf:resource="http://www.semwebtech.org/mondial/10/meta#Continent"/>
+    <rdfs:domain rdf:resource="http://www.semwebtech.org/mondial/10/meta#EncompassedArea"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.semwebtech.org/mondial/10/meta#isBorderOf">
+    <owl:inverseOf rdf:resource="http://www.semwebtech.org/mondial/10/meta#hasBorder"/>
+    <rdfs:range rdf:resource="http://www.semwebtech.org/mondial/10/meta#Country"/>
+    <rdfs:domain rdf:resource="http://www.semwebtech.org/mondial/10/meta#Border"/>
+  </owl:ObjectProperty>
+  <owl:DatatypeProperty rdf:about="http://www.semwebtech.org/mondial/10/meta#othername">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain>
+      <owl:Class>
+        <owl:intersectionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="http://www.semwebtech.org/mondial/10/meta#MondialThing"/>
+          <rdf:Description>
+            <owl:complementOf rdf:resource="http://www.semwebtech.org/mondial/10/meta#ReifiedThing"/>
+          </rdf:Description>
+          <rdf:Description>
+            <owl:complementOf rdf:resource="http://www.semwebtech.org/mondial/10/meta#Border"/>
+          </rdf:Description>
+          <rdf:Description>
+            <owl:complementOf rdf:resource="http://www.semwebtech.org/mondial/10/meta#Source"/>
+          </rdf:Description>
+          <rdf:Description>
+            <owl:complementOf rdf:resource="http://www.semwebtech.org/mondial/10/meta#Estuary"/>
+          </rdf:Description>
+        </owl:intersectionOf>
+      </owl:Class>
+    </rdfs:domain>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://www.semwebtech.org/mondial/10/meta#year">
+    <rdfs:domain rdf:resource="http://www.semwebtech.org/mondial/10/meta#YearlyMeasurement"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#gYear"/>
+  </owl:DatatypeProperty>
+  <owl:SymmetricProperty rdf:about="http://www.semwebtech.org/mondial/10/meta#neighbor">
+    <rdfs:range rdf:resource="http://www.semwebtech.org/mondial/10/meta#Country"/>
+    <rdfs:domain rdf:resource="http://www.semwebtech.org/mondial/10/meta#Country"/>
+    <rdfs:subPropertyOf rdf:resource="http://www.semwebtech.org/mondial/10/meta#borders"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </owl:SymmetricProperty>
+  <owl:SymmetricProperty rdf:about="http://www.semwebtech.org/mondial/10/meta#mergesWith">
+    <rdfs:range rdf:resource="http://www.semwebtech.org/mondial/10/meta#Sea"/>
+    <rdfs:domain rdf:resource="http://www.semwebtech.org/mondial/10/meta#Sea"/>
+    <rdfs:subPropertyOf rdf:resource="http://www.semwebtech.org/mondial/10/meta#borders"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </owl:SymmetricProperty>
+  <owl:FunctionalProperty rdf:about="http://www.semwebtech.org/mondial/10/meta#independenceDate">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#date"/>
+    <rdfs:domain rdf:resource="http://www.semwebtech.org/mondial/10/meta#Country"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:about="http://www.semwebtech.org/mondial/10/meta#infantMortality">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+    <rdfs:domain rdf:resource="http://www.semwebtech.org/mondial/10/meta#Country"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:about="http://www.semwebtech.org/mondial/10/meta#value">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+    <rdfs:domain rdf:resource="http://www.semwebtech.org/mondial/10/meta#Measurement"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:about="http://www.semwebtech.org/mondial/10/meta#latitude">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+    <rdfs:domain rdf:resource="http://www.semwebtech.org/mondial/10/meta#Location"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:about="http://www.semwebtech.org/mondial/10/meta#ofObject">
+    <rdfs:range rdf:resource="http://www.semwebtech.org/mondial/10/meta#MondialThing"/>
+    <rdfs:domain rdf:resource="http://www.semwebtech.org/mondial/10/meta#Measurement"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:about="http://www.semwebtech.org/mondial/10/meta#onEthnicGroup">
+    <rdfs:range rdf:resource="http://www.semwebtech.org/mondial/10/meta#EthnicGroup"/>
+    <rdfs:domain rdf:resource="http://www.semwebtech.org/mondial/10/meta#EthnicProportion"/>
+    <owl:inverseOf rdf:resource="http://www.semwebtech.org/mondial/10/meta#liveInInfo"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:about="http://www.semwebtech.org/mondial/10/meta#belongsToArchipelago">
+    <rdfs:range rdf:resource="http://www.semwebtech.org/mondial/10/meta#Archipelago"/>
+    <rdfs:domain rdf:resource="http://www.semwebtech.org/mondial/10/meta#Island"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:about="http://www.semwebtech.org/mondial/10/meta#onLanguage">
+    <rdfs:range rdf:resource="http://www.semwebtech.org/mondial/10/meta#Language"/>
+    <rdfs:domain rdf:resource="http://www.semwebtech.org/mondial/10/meta#SpokenBy"/>
+    <owl:inverseOf rdf:resource="http://www.semwebtech.org/mondial/10/meta#spokenInInfo"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:about="http://www.semwebtech.org/mondial/10/meta#encompassedArea">
+    <owl:inverseOf rdf:resource="http://www.semwebtech.org/mondial/10/meta#encompassedByInfo"/>
+    <rdfs:range rdf:resource="http://www.semwebtech.org/mondial/10/meta#EncompassedArea"/>
+    <rdfs:domain rdf:resource="http://www.semwebtech.org/mondial/10/meta#Encompassed"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:about="http://www.semwebtech.org/mondial/10/meta#established">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#date"/>
+    <rdfs:domain rdf:resource="http://www.semwebtech.org/mondial/10/meta#Organization"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:about="http://www.semwebtech.org/mondial/10/meta#gdpInd">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+    <rdfs:domain rdf:resource="http://www.semwebtech.org/mondial/10/meta#Country"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:about="http://www.semwebtech.org/mondial/10/meta#abbrev">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="http://www.semwebtech.org/mondial/10/meta#Organization"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:about="http://www.semwebtech.org/mondial/10/meta#type">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain>
+      <owl:Class>
+        <owl:intersectionOf rdf:parseType="Collection">
+          <rdf:Description>
+            <owl:unionOf rdf:parseType="Collection">
+              <owl:Class rdf:about="http://www.semwebtech.org/mondial/10/meta#GeographicalThing"/>
+              <rdf:Description rdf:about="http://www.semwebtech.org/mondial/10/meta#Membership"/>
+            </owl:unionOf>
+          </rdf:Description>
+          <rdf:Description>
+            <owl:complementOf rdf:resource="http://www.semwebtech.org/mondial/10/meta#Continent"/>
+          </rdf:Description>
+          <rdf:Description>
+            <owl:complementOf rdf:resource="http://www.semwebtech.org/mondial/10/meta#River"/>
+          </rdf:Description>
+          <rdf:Description>
+            <owl:complementOf rdf:resource="http://www.semwebtech.org/mondial/10/meta#Source"/>
+          </rdf:Description>
+          <rdf:Description>
+            <owl:complementOf rdf:resource="http://www.semwebtech.org/mondial/10/meta#Estuary"/>
+          </rdf:Description>
+          <rdf:Description>
+            <owl:complementOf rdf:resource="http://www.semwebtech.org/mondial/10/meta#City"/>
+          </rdf:Description>
+        </owl:intersectionOf>
+      </owl:Class>
+    </rdfs:domain>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:about="http://www.semwebtech.org/mondial/10/meta#area">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+    <rdfs:domain rdf:parseType="Resource">
+      <owl:unionOf rdf:parseType="Collection">
+        <owl:Class rdf:about="http://www.semwebtech.org/mondial/10/meta#Area"/>
+        <rdf:Description rdf:about="http://www.semwebtech.org/mondial/10/meta#River"/>
+      </owl:unionOf>
+    </rdfs:domain>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:about="http://www.semwebtech.org/mondial/10/meta#elevation">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+    <rdfs:domain rdf:resource="http://www.semwebtech.org/mondial/10/meta#Location"/>
+    <rdfs:domain rdf:parseType="Resource">
+      <owl:intersectionOf rdf:parseType="Collection">
+        <owl:Class rdf:about="http://www.semwebtech.org/mondial/10/meta#Location"/>
+        <rdf:Description>
+          <owl:complementOf rdf:resource="http://www.semwebtech.org/mondial/10/meta#Desert"/>
+        </rdf:Description>
+      </owl:intersectionOf>
+    </rdfs:domain>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:about="http://www.semwebtech.org/mondial/10/meta#onReligion">
+    <rdfs:range rdf:resource="http://www.semwebtech.org/mondial/10/meta#Religion"/>
+    <rdfs:domain rdf:resource="http://www.semwebtech.org/mondial/10/meta#BelievedBy"/>
+    <owl:inverseOf rdf:resource="http://www.semwebtech.org/mondial/10/meta#followedInInfo"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:about="http://www.semwebtech.org/mondial/10/meta#gdpServ">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+    <rdfs:domain rdf:resource="http://www.semwebtech.org/mondial/10/meta#Country"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:about="http://www.semwebtech.org/mondial/10/meta#percent">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+    <rdfs:domain rdf:parseType="Resource">
+      <owl:unionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="http://www.semwebtech.org/mondial/10/meta#SpokenBy"/>
+        <rdf:Description rdf:about="http://www.semwebtech.org/mondial/10/meta#BelievedBy"/>
+        <rdf:Description rdf:about="http://www.semwebtech.org/mondial/10/meta#EthnicProportion"/>
+        <rdf:Description rdf:about="http://www.semwebtech.org/mondial/10/meta#Encompassed"/>
+      </owl:unionOf>
+    </rdfs:domain>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:about="http://www.semwebtech.org/mondial/10/meta#inMountains">
+    <rdfs:range rdf:resource="http://www.semwebtech.org/mondial/10/meta#Mountains"/>
+    <rdfs:domain rdf:parseType="Resource">
+      <owl:unionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="http://www.semwebtech.org/mondial/10/meta#Mountain"/>
+        <rdf:Description rdf:about="http://www.semwebtech.org/mondial/10/meta#Source"/>
+      </owl:unionOf>
+    </rdfs:domain>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:about="http://www.semwebtech.org/mondial/10/meta#depth">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+    <rdfs:domain rdf:parseType="Resource">
+      <owl:unionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="http://www.semwebtech.org/mondial/10/meta#Sea"/>
+        <rdf:Description rdf:about="http://www.semwebtech.org/mondial/10/meta#Lake"/>
+      </owl:unionOf>
+    </rdfs:domain>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:about="http://www.semwebtech.org/mondial/10/meta#name">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain>
+      <owl:Class>
+        <owl:intersectionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="http://www.semwebtech.org/mondial/10/meta#MondialThing"/>
+          <rdf:Description>
+            <owl:complementOf rdf:resource="http://www.semwebtech.org/mondial/10/meta#ReifiedThing"/>
+          </rdf:Description>
+          <rdf:Description>
+            <owl:complementOf rdf:resource="http://www.semwebtech.org/mondial/10/meta#Border"/>
+          </rdf:Description>
+          <rdf:Description>
+            <owl:complementOf rdf:resource="http://www.semwebtech.org/mondial/10/meta#Source"/>
+          </rdf:Description>
+          <rdf:Description>
+            <owl:complementOf rdf:resource="http://www.semwebtech.org/mondial/10/meta#Estuary"/>
+          </rdf:Description>
+        </owl:intersectionOf>
+      </owl:Class>
+    </rdfs:domain>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:about="http://www.semwebtech.org/mondial/10/meta#lastEruption">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#date"/>
+    <rdfs:domain>
+      <rdf:Description rdf:about="http://www.semwebtech.org/mondial/10/meta#Volcano">
+        <rdfs:subClassOf rdf:resource="http://www.semwebtech.org/mondial/10/meta#Mountain"/>
+      </rdf:Description>
+    </rdfs:domain>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:about="http://www.semwebtech.org/mondial/10/meta#inOrganization">
+    <rdfs:range rdf:resource="http://www.semwebtech.org/mondial/10/meta#Organization"/>
+    <owl:inverseOf rdf:resource="http://www.semwebtech.org/mondial/10/meta#hasMembership"/>
+    <rdfs:domain rdf:resource="http://www.semwebtech.org/mondial/10/meta#Membership"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:about="http://www.semwebtech.org/mondial/10/meta#unemployment">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+    <rdfs:domain rdf:resource="http://www.semwebtech.org/mondial/10/meta#Country"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:about="http://www.semwebtech.org/mondial/10/meta#ofMember">
+    <rdfs:range rdf:resource="http://www.semwebtech.org/mondial/10/meta#Country"/>
+    <owl:inverseOf rdf:resource="http://www.semwebtech.org/mondial/10/meta#isInMembership"/>
+    <rdfs:domain rdf:resource="http://www.semwebtech.org/mondial/10/meta#Membership"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:about="http://www.semwebtech.org/mondial/10/meta#wasDependentOf">
+    <rdfs:range>
+      <rdf:Description rdf:about="http://www.semwebtech.org/mondial/10/meta#PoliticalBody">
+        <owl:disjointWith rdf:resource="http://www.semwebtech.org/mondial/10/meta#AdministrativeSubdivision"/>
+        <owl:disjointUnionOf rdf:parseType="Collection">
+          <rdf:Description rdf:about="http://www.semwebtech.org/mondial/10/meta#Country"/>
+          <owl:Class rdf:about="http://www.semwebtech.org/mondial/10/meta#Organization"/>
+        </owl:disjointUnionOf>
+        <rdfs:subClassOf rdf:resource="http://www.semwebtech.org/mondial/10/meta#PoliticalThing"/>
+      </rdf:Description>
+    </rdfs:range>
+    <rdfs:domain rdf:resource="http://www.semwebtech.org/mondial/10/meta#Country"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:about="http://www.semwebtech.org/mondial/10/meta#length">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+    <rdfs:domain rdf:resource="http://www.semwebtech.org/mondial/10/meta#Line"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:about="http://www.semwebtech.org/mondial/10/meta#dependentOf">
+    <rdfs:range rdf:resource="http://www.semwebtech.org/mondial/10/meta#Country"/>
+    <rdfs:domain rdf:resource="http://www.semwebtech.org/mondial/10/meta#Country"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:about="http://www.semwebtech.org/mondial/10/meta#inflation">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+    <rdfs:domain rdf:resource="http://www.semwebtech.org/mondial/10/meta#Country"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:about="http://www.semwebtech.org/mondial/10/meta#populationGrowth">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+    <rdfs:domain rdf:resource="http://www.semwebtech.org/mondial/10/meta#Country"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:about="http://www.semwebtech.org/mondial/10/meta#capital">
+    <owl:inverseOf rdf:resource="http://www.semwebtech.org/mondial/10/meta#isCapitalOf"/>
+    <rdfs:range rdf:resource="http://www.semwebtech.org/mondial/10/meta#City"/>
+    <rdfs:domain rdf:resource="http://www.semwebtech.org/mondial/10/meta#AdministrativeArea"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:about="http://www.semwebtech.org/mondial/10/meta#longitude">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+    <rdfs:domain rdf:resource="http://www.semwebtech.org/mondial/10/meta#Location"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:about="http://www.semwebtech.org/mondial/10/meta#government">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="http://www.semwebtech.org/mondial/10/meta#Country"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:about="http://www.semwebtech.org/mondial/10/meta#gdpAgri">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+    <rdfs:domain rdf:resource="http://www.semwebtech.org/mondial/10/meta#Country"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:about="http://www.semwebtech.org/mondial/10/meta#gdpTotal">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+    <rdfs:domain rdf:resource="http://www.semwebtech.org/mondial/10/meta#Country"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:about="http://www.semwebtech.org/mondial/10/meta#population">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"/>
+    <rdfs:domain rdf:parseType="Resource">
+      <owl:intersectionOf rdf:parseType="Collection">
+        <owl:Class rdf:about="http://www.semwebtech.org/mondial/10/meta#Area"/>
+        <rdf:Description>
+          <owl:complementOf rdf:resource="http://www.semwebtech.org/mondial/10/meta#Continent"/>
+        </rdf:Description>
+        <rdf:Description>
+          <owl:complementOf rdf:resource="http://www.semwebtech.org/mondial/10/meta#Desert"/>
+        </rdf:Description>
+        <rdf:Description>
+          <owl:complementOf rdf:resource="http://www.semwebtech.org/mondial/10/meta#Water"/>
+        </rdf:Description>
+        <rdf:Description>
+          <owl:complementOf rdf:resource="http://www.semwebtech.org/mondial/10/meta#Mountains"/>
+        </rdf:Description>
+      </owl:intersectionOf>
+    </rdfs:domain>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:about="http://www.semwebtech.org/mondial/10/meta#encompassedBy">
+    <rdfs:range rdf:resource="http://www.semwebtech.org/mondial/10/meta#Continent"/>
+    <rdfs:domain rdf:resource="http://www.semwebtech.org/mondial/10/meta#Encompassed"/>
+    <owl:inverseOf rdf:resource="http://www.semwebtech.org/mondial/10/meta#encompassesInfo"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:about="http://www.semwebtech.org/mondial/10/meta#carCode">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="http://www.semwebtech.org/mondial/10/meta#Country"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:about="http://www.semwebtech.org/mondial/10/meta#hasHeadq">
+    <rdfs:range rdf:resource="http://www.semwebtech.org/mondial/10/meta#City"/>
+    <rdfs:domain rdf:resource="http://www.semwebtech.org/mondial/10/meta#Organization"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:about="http://www.semwebtech.org/mondial/10/meta#localname">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <rdf:Description rdf:about="http://www.semwebtech.org/mondial/10/meta#Country"/>
+          <rdf:Description rdf:about="http://www.semwebtech.org/mondial/10/meta#Province"/>
+          <rdf:Description rdf:about="http://www.semwebtech.org/mondial/10/meta#City"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </owl:FunctionalProperty>
+  <owl:InverseFunctionalProperty rdf:about="http://www.semwebtech.org/mondial/10/meta#languageInfo">
+    <owl:inverseOf rdf:resource="http://www.semwebtech.org/mondial/10/meta#languageInfo-"/>
+    <rdfs:range rdf:resource="http://www.semwebtech.org/mondial/10/meta#SpokenBy"/>
+    <rdfs:domain rdf:resource="http://www.semwebtech.org/mondial/10/meta#Country"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </owl:InverseFunctionalProperty>
+  <owl:InverseFunctionalProperty rdf:about="http://www.semwebtech.org/mondial/10/meta#flowsThrough">
+    <rdfs:range rdf:resource="http://www.semwebtech.org/mondial/10/meta#Lake"/>
+    <rdfs:domain rdf:resource="http://www.semwebtech.org/mondial/10/meta#River"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </owl:InverseFunctionalProperty>
+  <owl:InverseFunctionalProperty rdf:about="http://www.semwebtech.org/mondial/10/meta#ethnicInfo">
+    <owl:inverseOf rdf:resource="http://www.semwebtech.org/mondial/10/meta#ethnicInfo-"/>
+    <rdfs:range rdf:resource="http://www.semwebtech.org/mondial/10/meta#EthnicProportion"/>
+    <rdfs:domain rdf:resource="http://www.semwebtech.org/mondial/10/meta#Country"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </owl:InverseFunctionalProperty>
+  <owl:InverseFunctionalProperty rdf:about="http://www.semwebtech.org/mondial/10/meta#hadPopulation">
+    <rdfs:range rdf:resource="http://www.semwebtech.org/mondial/10/meta#PopulationCount"/>
+    <rdfs:domain rdf:parseType="Resource">
+      <owl:unionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="http://www.semwebtech.org/mondial/10/meta#Country"/>
+        <rdf:Description rdf:about="http://www.semwebtech.org/mondial/10/meta#Province"/>
+        <rdf:Description rdf:about="http://www.semwebtech.org/mondial/10/meta#City"/>
+      </owl:unionOf>
+    </rdfs:domain>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </owl:InverseFunctionalProperty>
+  <owl:InverseFunctionalProperty rdf:about="http://www.semwebtech.org/mondial/10/meta#hasProvince">
+    <owl:inverseOf rdf:resource="http://www.semwebtech.org/mondial/10/meta#isProvinceOf"/>
+    <rdfs:range rdf:resource="http://www.semwebtech.org/mondial/10/meta#Province"/>
+    <rdfs:domain rdf:resource="http://www.semwebtech.org/mondial/10/meta#Country"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </owl:InverseFunctionalProperty>
+  <owl:InverseFunctionalProperty rdf:about="http://www.semwebtech.org/mondial/10/meta#hasEstuary">
+    <owl:inverseOf rdf:resource="http://www.semwebtech.org/mondial/10/meta#hasEstuary-"/>
+    <rdfs:range rdf:resource="http://www.semwebtech.org/mondial/10/meta#Estuary"/>
+    <rdfs:domain rdf:resource="http://www.semwebtech.org/mondial/10/meta#River"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </owl:InverseFunctionalProperty>
+  <owl:InverseFunctionalProperty rdf:about="http://www.semwebtech.org/mondial/10/meta#religionInfo">
+    <owl:inverseOf rdf:resource="http://www.semwebtech.org/mondial/10/meta#religionInfo-"/>
+    <rdfs:range rdf:resource="http://www.semwebtech.org/mondial/10/meta#BelievedBy"/>
+    <rdfs:domain rdf:resource="http://www.semwebtech.org/mondial/10/meta#Country"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </owl:InverseFunctionalProperty>
+  <owl:InverseFunctionalProperty rdf:about="http://www.semwebtech.org/mondial/10/meta#hasSource">
+    <owl:inverseOf rdf:resource="http://www.semwebtech.org/mondial/10/meta#hasSource-"/>
+    <rdfs:range rdf:resource="http://www.semwebtech.org/mondial/10/meta#Source"/>
+    <rdfs:domain rdf:resource="http://www.semwebtech.org/mondial/10/meta#River"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </owl:InverseFunctionalProperty>
+  <rdf:Description>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:someValuesFrom rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+        <owl:onProperty>
+          <owl:ObjectProperty>
+            <owl:inverseOf rdf:resource="http://www.semwebtech.org/mondial/10/meta#hadPopulation"/>
+          </owl:ObjectProperty>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <owl:intersectionOf rdf:parseType="Collection">
+      <owl:Class rdf:about="http://www.semwebtech.org/mondial/10/meta#PopulationCount"/>
+      <owl:Restriction>
+        <owl:someValuesFrom rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+        <owl:onProperty rdf:resource="http://www.semwebtech.org/mondial/10/meta#ofObject"/>
+      </owl:Restriction>
+    </owl:intersectionOf>
+  </rdf:Description>
+  <rdf:Description>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+        >1</owl:minQualifiedCardinality>
+        <owl:onClass rdf:resource="http://www.semwebtech.org/mondial/10/meta#Country"/>
+        <owl:onProperty rdf:resource="http://www.semwebtech.org/mondial/10/meta#locatedIn"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <owl:intersectionOf rdf:parseType="Collection">
+      <owl:Class rdf:about="http://www.semwebtech.org/mondial/10/meta#GeographicalThing"/>
+      <rdf:Description>
+        <owl:complementOf rdf:resource="http://www.semwebtech.org/mondial/10/meta#Continent"/>
+      </rdf:Description>
+    </owl:intersectionOf>
+  </rdf:Description>
+  <rdf:Description>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+        >1</owl:maxCardinality>
+        <owl:onProperty rdf:resource="http://www.semwebtech.org/mondial/10/meta#locatedOnIsland"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <owl:unionOf rdf:parseType="Collection">
+      <rdf:Description rdf:about="http://www.semwebtech.org/mondial/10/meta#Mountain"/>
+      <rdf:Description rdf:about="http://www.semwebtech.org/mondial/10/meta#River"/>
+      <rdf:Description rdf:about="http://www.semwebtech.org/mondial/10/meta#Lake"/>
+    </owl:unionOf>
+  </rdf:Description>
+</rdf:RDF>

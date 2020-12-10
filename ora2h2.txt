@@ -1,0 +1,9 @@
+
+Adaptations from Oracle to H2 (similar to mysql; take mysql stuff for editing): 
+
+* replace VARCHAR2 by VARCHAR. 
+* replace NUMBER by  INT or FLOAT.
+* OBJECTs and CREATE TYPE are not supported by MySQL.
+  Thus, the definition of GeoCoord has been replaced by
+  longitude and latitude.
+  (-> modified also mondial-inputs.sql)

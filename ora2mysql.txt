@@ -1,0 +1,21 @@
+
+Adaptations from Oracle to MySQL (v5.4.1, 2009): 
+
+* replace VARCHAR2 by VARCHAR. 
+* replace NUMBER by  INT or FLOAT.
+* CONSTRAINT [name] is allowed in MySQL only for
+  PRIMARY KEY, UNIQUE, or FOREIGN KEY; 
+  thus NOT NULL constraints without naming.
+* Named constraints are not allowed in MySQL
+  in the column definitions, but only separately as
+  table constraints.
+* OBJECTs and CREATE TYPE are not supported by MySQL.
+  Thus, the definition of GeoCoord has been replaced by
+  longitude and latitude.
+  (-> modified also mondial-inputs.sql)
+
+* MariaDB: is case-sensitive. inputs.sql is lowercase,
+  => schema.sql must also be lowercase.
+
+* Note: FOREIGN KEY CONSTRAINTs are only evaluated if
+  "InnoDB" is chosen as storage engine.

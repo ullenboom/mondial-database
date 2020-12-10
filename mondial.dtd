@@ -1,0 +1,177 @@
+<!-- XML DTD "mondial.dtd":
+  (Wolfgang May, may@informatik.uni-freiburg.de, March 2000, revised April 2009)
+  a hierarchical DTD for the MONDIAL database,
+  containing e.g.,
+  - scalar reference attributes (city/capital)
+  - multivalued reference attributes (organization/member/country)
+  - cross-references in both directions (organization/member/country,
+    country/memberships)
+  - reference attributes with more than one target class
+    (river/to, references rivers, lakes, and seas) -->
+
+<!ELEMENT mondial (country*,continent*,organization*,
+                   sea*,river*,lake*,island*,mountain*,desert*,airport*,langtree*)> 
+<!ELEMENT country (name+,localname?,population+,
+                   population_growth?,infant_mortality?,
+                   gdp_total?,gdp_agri?,gdp_ind?,gdp_serv?,inflation?,unemployment?,
+                   (indep_date|dependent)?,government?,encompassed+,
+                   ethnicgroup*,religion*,language*,border*,
+                   (province+|city+))>
+<!ATTLIST country car_code ID #REQUIRED
+                  area CDATA #REQUIRED
+                  capital IDREF #IMPLIED
+                  memberships IDREFS #IMPLIED>
+<!ELEMENT name (#PCDATA)>
+  <!ATTLIST name country CDATA #IMPLIED>
+<!ELEMENT localname (#PCDATA)>
+<!ELEMENT area (#PCDATA)>
+<!ELEMENT population (#PCDATA)>
+<!-- note that population is also a subelement of city -->
+  <!ATTLIST population year CDATA #IMPLIED
+                       measured CDATA #IMPLIED>
+
+<!ELEMENT population_growth (#PCDATA)>
+<!ELEMENT infant_mortality (#PCDATA)>
+<!ELEMENT gdp_total (#PCDATA)>
+<!ELEMENT gdp_ind (#PCDATA)>
+<!ELEMENT gdp_agri (#PCDATA)>
+<!ELEMENT gdp_serv (#PCDATA)>
+<!ELEMENT inflation (#PCDATA)>
+<!ELEMENT unemployment (#PCDATA)>
+<!ELEMENT indep_date (#PCDATA)>
+  <!ATTLIST indep_date from CDATA #IMPLIED>
+  <!-- usually idref to a country, but not always (e.g. "Ottoman Empire") -->
+<!ELEMENT dependent EMPTY>
+  <!ATTLIST dependent country IDREF #REQUIRED>
+<!ELEMENT government (#PCDATA)>
+<!ELEMENT encompassed EMPTY>
+<!ATTLIST encompassed continent IDREF #REQUIRED
+                      percentage CDATA #REQUIRED>
+<!ELEMENT ethnicgroup (#PCDATA)>
+<!ATTLIST ethnicgroup percentage CDATA #IMPLIED>
+<!ELEMENT religion (#PCDATA)>
+<!ATTLIST religion percentage CDATA #IMPLIED>
+<!ELEMENT language (#PCDATA)>
+<!ATTLIST language percentage CDATA #IMPLIED>
+<!ELEMENT border EMPTY>
+<!ATTLIST border country IDREF #REQUIRED
+                 length CDATA #REQUIRED>
+
+<!ELEMENT province (name+,localname?,area?,population*,city*)>
+<!ATTLIST province id ID #REQUIRED
+                   country IDREF #REQUIRED
+                   capital IDREF #IMPLIED>
+
+<!ELEMENT city (name+,localname?,latitude?,longitude?,elevation?,population*,
+                located_at*,located_on*)>
+<!ATTLIST city id ID #REQUIRED
+               country IDREF #REQUIRED
+               province IDREF #IMPLIED>
+<!ELEMENT longitude (#PCDATA)>
+<!ELEMENT latitude (#PCDATA)>
+<!ELEMENT elevation (#PCDATA)>
+<!ELEMENT height (#PCDATA)>  <!-- height of a dam -->
+<!ELEMENT located_at EMPTY>
+<!ATTLIST located_at watertype (river|sea|lake) #REQUIRED
+                     river IDREFS #IMPLIED
+                     sea IDREFS #IMPLIED
+                     lake IDREFS #IMPLIED>
+<!ELEMENT located_on EMPTY>
+<!ATTLIST located_on island IDREF #REQUIRED>
+
+<!ELEMENT organization (name,abbrev,established?,members*)>
+<!ATTLIST organization id ID #REQUIRED
+                       headq IDREF #IMPLIED>
+<!ELEMENT abbrev (#PCDATA)>
+<!ELEMENT established (#PCDATA)>
+<!ELEMENT members EMPTY>
+<!ATTLIST members type CDATA #REQUIRED
+                  country IDREFS #REQUIRED>
+
+<!ELEMENT continent (name,area)>
+<!ATTLIST continent id ID #REQUIRED>
+
+<!-- just as a pattern that is never used -->
+<!ELEMENT geo (name+,islands?,mountains?,located*,to*,from?,
+               area?,length?,latitude?,longitude?,elevation?,depth?,height?,
+               source?,estuary?)>
+<!ATTLIST geo id ID #REQUIRED
+              country IDREFS #REQUIRED
+              type NMTOKEN #IMPLIED
+              sea IDREFS #IMPLIED
+              lake IDREFS #IMPLIED
+              island IDREF #IMPLIED
+              bordering IDREFS #IMPLIED>
+
+<!ELEMENT river (name+,located*,through*,to?,area?,length?,source?,estuary?)>
+<!ATTLIST river id ID #REQUIRED
+                country IDREFS #REQUIRED
+                island IDREF #IMPLIED>
+
+<!ELEMENT length (#PCDATA)>
+<!ELEMENT depth (#PCDATA)>
+
+<!ELEMENT to EMPTY>
+<!ATTLIST to watertype (river|sea|lake) #REQUIRED
+             water IDREF #REQUIRED>
+<!ELEMENT through EMPTY>
+<!ATTLIST through lake IDREFS #REQUIRED>
+
+<!ELEMENT source (mountains?,located*,from?,latitude?,longitude?,elevation?)>
+<!ATTLIST source country IDREFS #REQUIRED>
+
+<!ELEMENT from EMPTY>
+<!ATTLIST from watertype (river|sea|lake) #REQUIRED
+             water IDREFS #REQUIRED>
+  <!-- a river may evolve from a lake or one or more rivers -->
+
+<!ELEMENT estuary (located*,latitude?,longitude?,elevation?)>
+<!ATTLIST estuary country IDREFS #REQUIRED>
+
+<!ELEMENT located EMPTY>
+<!ATTLIST located country IDREF #REQUIRED
+                  province IDREFS #IMPLIED>
+
+<!ELEMENT lake (name+,located*,to?,area?,latitude?,longitude?,elevation?,depth?,height?)>
+<!ATTLIST lake id ID #REQUIRED
+               country IDREFS #REQUIRED
+               island IDREF #IMPLIED
+               salinity CDATA #IMPLIED
+               type (saline|acid|artificial|dam|caldera|crater|impact|naturaldam|asphalt) #IMPLIED>
+
+<!ELEMENT sea (name+,located*,area?,depth?)>
+<!ATTLIST sea id ID #REQUIRED
+              country IDREFS #REQUIRED
+              bordering IDREFS #IMPLIED>
+
+<!ELEMENT desert (name+,located*,area?,latitude?,longitude?)>
+<!ATTLIST desert id ID #REQUIRED
+                 country IDREFS #REQUIRED
+                 type (sand|rocks|lime|salt|ice) #IMPLIED>
+
+<!ELEMENT island (name+,islands?,located*,area?,latitude?,longitude?,elevation?)>
+<!ATTLIST island id ID #REQUIRED
+                 sea IDREFS #IMPLIED
+                 lake IDREF #IMPLIED
+                 river IDREFS #IMPLIED
+                 country IDREFS #REQUIRED
+                 type (volcanic|coral|atoll|raisedatoll|lime|sand) #IMPLIED>
+<!ELEMENT islands (#PCDATA)>
+
+<!ELEMENT mountain (name+,mountains?,located*,latitude?,longitude?,elevation?)>
+<!ATTLIST mountain id ID #REQUIRED
+                   country IDREFS #REQUIRED
+                   island IDREF #IMPLIED
+                   type (volcanic|volcano|monolith|granite) #IMPLIED
+                   last_eruption CDATA #IMPLIED>
+<!ELEMENT mountains (#PCDATA)>
+
+<!ELEMENT airport (name+,latitude,longitude,elevation?,gmtOffset,located_on?)>
+<!ATTLIST airport iatacode NMTOKEN #REQUIRED
+                   city IDREF #IMPLIED
+                   country IDREF #REQUIRED>
+<!ELEMENT gmtOffset (#PCDATA)>
+<!ELEMENT langtree (name+,spokenby*,langtree*)>
+<!ATTLIST langtree country IDREFS #IMPLIED>
+<!ELEMENT spokenby (name*)>
+

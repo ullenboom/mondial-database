@@ -1,0 +1,6 @@
+ prefix mon: <http://www.semwebtech.org/mondial/10/meta#>
+ prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+ select ?X
+ from <file:mondial-meta.n3>
+ from <file:mondial-europe.n3>
+ where {?X rdf:type mon:Country}
